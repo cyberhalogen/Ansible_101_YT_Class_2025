@@ -23,3 +23,12 @@ all:
           hosts:  
             spine1:
             spine2:
+    INFRA:
+      children:
+        HOSTS:
+          hosts:
+            host1:
+            host2:
+        ROUTERS:
+          hosts:
+            R1:
