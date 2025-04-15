@@ -1,0 +1,8 @@
+---
+- name: Gather and display some system facts
+  hosts: R1
+  gather_facts: true
+  tasks:
+    - name: display facts
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"
