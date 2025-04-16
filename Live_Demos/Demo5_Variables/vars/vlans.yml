@@ -1,0 +1,8 @@
+
+vlans:
+  - vlan_id: 1000
+    name: DMZ
+  - vlan_id: 2000
+    name: Internal
+  - vlan_id: 3000
+    name: QA

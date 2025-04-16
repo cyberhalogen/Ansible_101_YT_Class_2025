@@ -15,10 +15,7 @@ all:
       children:
         LEAFS:
           hosts:
-            leaf1:
-            leaf2:
-            leaf3:
-            leaf4:
+            leaf[1:4]:
         SPINES:
           hosts:  
             spine1:

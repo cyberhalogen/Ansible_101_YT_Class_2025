@@ -2,8 +2,8 @@
 all:
   vars:
     ansible_user: admin
-    ansible_network_os: eos
     ansible_password: admin
+    ansible_network_os: eos
     ansible_connection: httpapi
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False

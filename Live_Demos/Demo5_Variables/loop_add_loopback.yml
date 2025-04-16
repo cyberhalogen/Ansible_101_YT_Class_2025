@@ -1,0 +1,13 @@
+---
+- name: Add loopback configs to FABRIC
+  hosts: FABRIC
+  tasks:
+    - name: Debug
+      ansible.builtin.debug:
+        msg: "{{ switches.["{{ inventory_hostname }}"].loopback0 }}"
+    # - name: Use Rendered to convert the structured data to native config
+    #   arista.eos.eos_l3_interfaces:
+    #     config:
+    #       - name: loopback0
+    #         ipv4:
+    #           - address: "{{ switches.inventory_hostname.loopback0 }}"

@@ -14,34 +14,34 @@ vlans:
     name: QA
 
 switches:
-  - name: leaf1
+  leaf1:
     p2p: 
       - Ethernet3
       - Ethernet4
-    loopack0: 10.255.0.1/32
-  - name: leaf2
+    loopback0: 10.255.0.1/32
+  leaf2:
     p2p: 
       - Ethernet3
       - Ethernet4
-    loopack0: 10.255.0.2/32
-  - name: leaf3
+    loopback0: 10.255.0.2/32
+  leaf3:
     p2p: 
       - Ethernet3
       - Ethernet4
-    loopack0: 10.255.0.3/32
-  - name: leaf4
+    loopback0: 10.255.0.3/32
+  leaf4:
     p2p: 
       - Ethernet3
       - Ethernet4
-    loopack0: 10.255.0.4/32
-  - name: spine1
+    loopback0: 10.255.0.4/32
+  spine1:
     p2p:
       - Ethernet3
       - Ethernet4
       - Ethernet5
       - Ethernet6
     loopback0: 10.255.0.101/32
-  - name: spine2
+  spine2:
     p2p:
       - Ethernet3
       - Ethernet4

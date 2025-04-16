@@ -1,10 +1,8 @@
 ---
 - name: Add VLANs to device
   hosts: LEAFS
-  vars:
-    vlan_id: 300
   tasks:
-    - name: Add VLAN {{ vlan_id }}
+    - name: Add VLAN
       arista.eos.eos_vlans:
         config:
           - name: "VLAN_{{ vlan_id }}"
