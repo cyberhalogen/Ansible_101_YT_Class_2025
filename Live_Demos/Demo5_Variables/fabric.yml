@@ -1,0 +1,50 @@
+global_settings:
+  OSPF_Area: 0
+  p2p_MTU: 1550
+  DNS: [1.1.1.1, 2.2.2.2, 3.3.3.3]
+  NTP: [4.4.4.4, 5.5.5.5]
+
+
+vlans:
+  - vlan_id: 100
+    name: DMZ
+  - vlan_id: 200
+    name: Internal
+  - vlan_id: 300
+    name: QA
+
+switches:
+  - name: leaf1
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+    loopack0: 10.255.0.1/32
+  - name: leaf2
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+    loopack0: 10.255.0.2/32
+  - name: leaf3
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+    loopack0: 10.255.0.3/32
+  - name: leaf4
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+    loopack0: 10.255.0.4/32
+  - name: spine1
+    p2p:
+      - Ethernet3
+      - Ethernet4
+      - Ethernet5
+      - Ethernet6
+    loopback0: 10.255.0.101/32
+  - name: spine2
+    p2p:
+      - Ethernet3
+      - Ethernet4
+      - Ethernet5
+      - Ethernet6
+    loopback0: 10.255.0.102/32

@@ -1,0 +1,60 @@
+---
+
+## Strings
+
+string: "Just words, typically in single or double quotes"
+
+Captain_Picard: "Make it so"
+
+
+## Integers
+
+integer: 42
+
+Starship_Enterprise: 1701
+
+Starship_Enterprise_D: "1701-D"
+
+## Booleans
+
+Sky_is_purple: False
+
+## List
+
+#crew_1701: ["Kirk", "Spock", "Scott", "Sulu", "Urura", "Chekov"]
+
+crew_1701:
+  - "Kirk"
+  - "Spock"
+  - "Scott"
+  - "Sulu"
+  - "Urura"
+  - "Chekov"
+
+data_types: ["Integers", "Strings", "Booleans"]
+
+starships:
+  - name: USS_Enterprise
+    NCC: 1701
+    CO: "James T Kirk"
+  - name: USS_Voyager
+    NCC: 74656
+    CO: "Kathryn Janeway"
+  - name: USS_Reliant
+    NCC: 1864
+    CO: "Khan"
+  - name: USS_Saratoga 
+    NCC: 1887
+    CO: "N/A"
+  - name: USS_Yorktown
+    NCC: 1717
+    CO: "N/A"
+
+vlans:
+  - vlan_id: 100
+    vlan_name: VLAN_100
+  - vlan_id: 200
+    vlan_name: VLAN_200
+
+
+
