@@ -1,0 +1,9 @@
+---
+- name: Generate config for simple demo
+  hosts: FABRIC
+  tasks:
+    - name: Build config from Jinja template
+      ansible.builtin.template:
+        src: "../templates/underlay.j2"
+        dest: "configs/{{ inventory_hostname }}.txt"
+        mode: "0644"

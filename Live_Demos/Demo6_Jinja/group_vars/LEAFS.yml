@@ -1,0 +1,13 @@
+# ---
+# favorite_captain: Kirk
+# dns_server: 3.3.3.3
+
+# vlans:
+#   - vlan_id: 100
+#     vlan_name: DMZ
+#   - vlan_id: 200
+#     vlan_name: Internal_A
+#   - vlan_id: 400
+#     vlan_name: Super_Awesome_VLAN
+#   - vlan_id: 500
+#     vlan_name: Added_VLAN

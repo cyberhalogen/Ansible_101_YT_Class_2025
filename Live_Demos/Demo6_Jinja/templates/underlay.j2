@@ -1,0 +1,78 @@
+
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$YZrlecUpHPvPqMTs$Hu02sd.dtk7AdQAb5FaYqGBCOP5uWsRWZ2cNIEWv0hzrAbqysaoByIosCygod8CmhtiKiZ6/LBBqpHQoNx.7n1
+!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname {{ inventory_hostname }}
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance MGMT
+!
+management api gnmi
+   transport grpc default
+      vrf MGMT
+!
+management api netconf
+   transport ssh default
+      vrf MGMT
+!
+{# Loop for p2p interfaces #}
+{% for interface in devices[inventory_hostname]['p2p'] %}
+interface {{ interface }}
+   no switchport
+   ip address unnumbered Loopback0
+   ip ospf network point-to-point
+   ip ospf area {{ global_settings.OSPF_area }}
+{% endfor %}
+
+{# Loop for loopbacks #}
+{% for loopback_dict in devices[inventory_hostname]['loopbacks']%}
+interface {{ loopback_dict.name }}
+   ip address {{ loopback_dict.ip }}
+   ip ospf area {{ global_settings.OSPF_area }}
+{% endfor %}
+
+
+!
+interface {{ global_settings.mgmt_int }}
+   vrf {{ global_settings.mgmt_vrf }}
+   ip address {{ devices[inventory_hostname]['mgmt']['mgmt_ip4']}}/{{devices[inventory_hostname]['mgmt']['mgmt_mask'] }}
+
+!
+ip routing
+no ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 172.20.20.1
+!
+ipv6 route vrf MGMT ::/0 3fff:172:20:20::1
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+router ospf {{ global_settings.OSPF_pid }}
+   router-id {{ devices[inventory_hostname]['mgmt']['mgmt_ip4'] }}
+   max-lsa 12000
+!
+end

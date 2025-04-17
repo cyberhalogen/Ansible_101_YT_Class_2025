@@ -1,0 +1,9 @@
+---
+- name: Just a quick cleanup playbook
+  hosts: LEAFS
+  tasks:
+    - name: Clean up VLANs
+      arista.eos.eos_vlans:
+        config:
+          - vlan_id: 1
+        state: overridden

@@ -1,0 +1,13 @@
+---
+  - name: Deploy configs
+    hosts: FABRIC
+    tasks:
+      - name: Deploy config
+        arista.eos.eos_config:
+          src: "{{ lookup( 'env', 'PWD' ) }}/configs/{{ inventory_hostname }}.txt"
+          save_when: always
+          backup: true
+          replace: config
+          backup_options:
+            filename: "{{ inventory_hostname }}_backup.txt"
+            dir_path: "{{ lookup('env','PWD') }}/backup_configs/"

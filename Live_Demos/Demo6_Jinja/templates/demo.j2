@@ -1,0 +1,9 @@
+
+hostname {{ inventory_hostname }}
+ip name-server {{ dns_server }}
+
+{% for item_dict in vlans  %}
+vlan {{ item_dict.vlan_id }}
+  name {{ item_dict.vlan_name }}
+
+{% endfor %}

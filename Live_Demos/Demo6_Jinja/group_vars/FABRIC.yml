@@ -1,0 +1,72 @@
+---
+global_settings:
+  OSPF_area: 0
+  OSPF_pid: 10
+  mgmt_vrf: MGMT
+  mgmt_int: Management0
+devices:
+  leaf1:
+    mgmt:
+      mgmt_ip4: 172.20.20.11
+      mgmt_mask: 24
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.1/32
+    p2p:
+      - Ethernet3
+      - Ethernet4
+  leaf2:
+    mgmt:
+      mgmt_ip4: 172.20.20.12
+      mgmt_mask: 24
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.2/32
+    p2p:
+      - Ethernet3
+      - Ethernet4
+  leaf3:
+    mgmt:
+      mgmt_ip4: 172.20.20.13
+      mgmt_mask: 24
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.3/32
+    p2p:
+      - Ethernet3
+      - Ethernet4
+  leaf4:
+    mgmt:
+      mgmt_ip4: 172.20.20.14
+      mgmt_mask: 24
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.4/32
+    p2p:
+      - Ethernet3
+      - Ethernet4
+  spine1:
+    mgmt:
+      mgmt_ip4: 172.20.20.101
+      mgmt_mask: 24
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.101/32
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+      - Ethernet5    
+      - Ethernet6   
+  spine2:
+    mgmt:
+      mgmt_ip4: 172.20.20.102
+      mgmt_mask: 24
+
+    loopbacks:
+      - name: loopback0
+        ip: 10.255.0.102/32
+    p2p: 
+      - Ethernet3
+      - Ethernet4
+      - Ethernet5    
+      - Ethernet6   
